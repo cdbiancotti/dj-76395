@@ -13,12 +13,12 @@
 
     ```shell
     # Windows
-    source .venv/Scripts/activate
-    . .venv/Scripts/activate
+    source <nombre de la carpeta del entorno virtual>/Scripts/activate
+    . <nombre de la carpeta del entorno virtual>/Scripts/activate
 
     # Linux/Mac
-    source .venv/bin/activate
-    . .venv/bin/activate
+    source <nombre de la carpeta del entorno virtual>/bin/activate
+    . <nombre de la carpeta del entorno virtual>/bin/activate
     ```
 
 11. instalar django con el manejador de paquetes de python `pip` con el comando `pip install Django`
