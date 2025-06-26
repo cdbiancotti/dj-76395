@@ -15,7 +15,6 @@ def saludo_template(request, nombre, apellido):
     
     # with open(r'C:\Users\cdbia\Desktop\76395\dj76395\templates\saludo_template.html') as archivo_abierto:
     #     ...
-    
     # archivo_abierto = open(r'C:\Users\cdbia\Desktop\76395\dj76395\templates\saludo_template.html') # ruta absoluta
     archivo_abierto = open(r'templates\saludo_template.html') # ruta relativa
     template = Template(archivo_abierto.read())
