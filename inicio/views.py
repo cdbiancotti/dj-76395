@@ -20,7 +20,6 @@ def saludo_template(request, nombre, apellido):
     template = Template(archivo_abierto.read())
     archivo_abierto.close()
     
-    
     fecha = datetime.now()
     
     datos = {
