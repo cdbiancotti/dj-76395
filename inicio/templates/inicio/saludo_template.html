@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{fecha}}: Hola {{nombre}} {{apellido}}</h1>
-    <h2>Como va la cosa?</h2>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title_text %}Saludo{% endblock title_text %}
+
+{% comment %} {% block header %}E amigo{% endblock header %} {% endcomment %}
+
+{% block h1_text %}Hola {{nombre}} {{apellido}}{% endblock h1_text %}
+
+{% block main %}
+<p>{{fecha}}: Como va la cosa?</p>
+{% endblock main %}

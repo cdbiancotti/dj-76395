@@ -5,7 +5,9 @@ from django.template import Template, Context, loader
 from inicio.models import Auto
 
 def inicio(request):
-    return HttpResponse('<h1>SOY EL INICIO!!!!!! MODIFICADO</h1>')
+    # return HttpResponse('<h1>SOY EL INICIO!!!!!! MODIFICADO</h1>')
+    
+    return render(request, 'inicio/index.html')
 
 def saludo(request, nombre, apellido):
     fecha = datetime.now()
