@@ -1,11 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Se Creo el auto {{auto.marca}} {{auto.modelo}}</h1>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title_text %}Crear auto{% endblock title_text %}
+
+{% block h1_text %}Crear auto{% endblock h1_text %}
+
+{% block main %}
+
+<form action={% url "inicio:crear_auto" %} method="POST">
+    {% csrf_token %}
+
+{% comment %}     
+    # SIN FORMULARIOS DE DJANGO
+    <p>
+        Marca:
+        <input type="text" name="marca" placeholder='Fiat, Ford, Chevrolet...'>
+    </p>
+    <p>
+        Modelo:
+        <input type="text" name="modelo" placeholder='Uno, S10, Ranger...'>
+    </p> 
+{% endcomment %}
+
+    {{formulario}}
+
+    <input type="submit" value="Crear">
+    {% comment %} <button>Crear</button> {% endcomment %}
+</form>
+
+{% endblock main %}

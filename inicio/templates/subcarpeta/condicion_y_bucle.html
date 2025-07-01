@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Condicion y bucle</h1>
-    {{listado_de_numeros}}
+{% extends "base.html" %}
+{% block h1_text %}Condicion y bucle{% endblock h1_text %}
+{% block main %}{{listado_de_numeros}}
 
     
     
@@ -25,7 +18,4 @@
                 {% endif %}
             </li>   
         {% endfor %}
-    </ul>
-
-</body>
-</html>
+    </ul>{% endblock main %}

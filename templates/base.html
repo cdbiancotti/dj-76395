@@ -22,7 +22,10 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">Inicio</a>
+                <a class="navbar-brand" href={% url "inicio:inicio" %}>Inicio</a>
+                <a class="navbar-brand" href={% url "inicio:saludo" 'Pepe' 'Grillo'%}>Saludo</a>
+                <a class="navbar-brand" href={% url "inicio:template_prueba" %}>Template Prueba</a>
+                <a class="navbar-brand" href={% url "inicio:crear_auto" %}>Crear Auto</a>
                 {% comment %} <a class="btn btn-primary" href="#signup">Sign Up</a> {% endcomment %}
             </div>
         </nav>

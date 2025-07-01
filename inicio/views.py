@@ -3,6 +3,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from inicio.models import Auto
+from inicio.forms import FormularioCrearAuto
 
 def inicio(request):
     # return HttpResponse('<h1>SOY EL INICIO!!!!!! MODIFICADO</h1>')
@@ -86,10 +87,36 @@ def condicion_y_bucle(request):
         "listado_de_numeros": [1,2,3,4,5,1,2,4,1,23,54,2,2,2,5,2,4,6,4,6,4,9,6,8,6,8,6,4,4]
     })
     
-def crear_auto(request, marca, modelo):
+def crear_auto(request):
     
-    auto = Auto(marca=marca, modelo=modelo)
+    print("###########################################")
+    print("###########################################")
+    print(request.GET)
+    print("###########################################")
+    print("###########################################")
+    print(request.POST)
+    print("###########################################")
+    print("###########################################")
     
-    auto.save()
+    # SIN FORMULARIOS DE DJANGO
+    # if request.method == "POST":
+    #     auto = Auto(marca=request.POST['marca'], modelo=request.POST['modelo'])
+    #     auto.save()
+        
+    #     return render(request, 'inicio/creacion_finalizada.html', {'auto': auto})
+    # return render(request, 'inicio/crear_auto.html', {})
     
-    return render(request, 'inicio/crear_auto.html', {'auto': auto})
+    
+    # CON FORMULARIO DE DJANGO
+    # FormularioCrearAuto
+    if request.method == "POST":
+        formulario = FormularioCrearAuto(request.POST)
+        if formulario.is_valid():
+            nueva_data = formulario.cleaned_data
+            
+            auto = Auto(marca=nueva_data['marca'], modelo=nueva_data['modelo'])
+            auto.save()
+            return render(request, 'inicio/creacion_finalizada.html', {'auto': auto})
+    else:
+        formulario = FormularioCrearAuto()
+    return render(request, 'inicio/crear_auto.html', {'formulario': formulario})
