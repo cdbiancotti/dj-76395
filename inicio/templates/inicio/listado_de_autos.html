@@ -18,6 +18,9 @@
         {% for auto in autos %}
         <li>
             {{auto}}
+            | <a href={% url "inicio:ver_auto" auto.id %}>Ver mas</a>
+            | <a href={% url "inicio:eliminar_auto" auto.id %}>Eliminar</a>
+            | <a href={% url "inicio:actualizar_auto" auto.id %}>Actualizar</a>
         </li>
         {% endfor %}
     </ul>

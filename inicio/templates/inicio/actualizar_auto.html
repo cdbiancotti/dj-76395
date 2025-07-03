@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title_text %}Actualizar auto{% endblock title_text %}
+
+{% block h1_text %}Actualizar auto{% endblock h1_text %}
+
+{% block main %}
+
+<form action={% url "inicio:actualizar_auto" auto.id %} method="POST">
+    {% csrf_token %}
+
+    {{formulario}}
+
+    <input type="submit" value="Actualizar">
+</form>
+
+{% endblock main %}

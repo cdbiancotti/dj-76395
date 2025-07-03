@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title_text %}Detalle Auto{% endblock title_text %}
+
+{% block h1_text %}Auto {{auto.id}}{% endblock h1_text %}
+
+{% block main %}
+<ul>
+    <li>Marca: {{auto.marca}}</li>
+    <li>Modelo: {{auto.modelo}}</li>
+</ul>
+{% endblock main %}
