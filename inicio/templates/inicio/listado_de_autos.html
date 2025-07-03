@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title_text %}Autos{% endblock title_text %}
+
+{% block h1_text %}Listado de autos{% endblock h1_text %}
+
+{% block main %}
+
+<p>
+    <form action={% url "inicio:listado_de_autos" %}>
+            {{formulario}}
+        <input type="submit" value='Buscar'>
+    </form>
+</p>
+
+{% if autos %}
+    <ul>
+        {% for auto in autos %}
+        <li>
+            {{auto}}
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+<p>No hay autos creados.</p>
+{% endif %}
+
+{% endblock main %}

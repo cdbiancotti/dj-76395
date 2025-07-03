@@ -3,7 +3,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from inicio.models import Auto
-from inicio.forms import FormularioCrearAuto
+from inicio.forms import FormularioCrearAuto, FormularioBusqueda
 
 def inicio(request):
     # return HttpResponse('<h1>SOY EL INICIO!!!!!! MODIFICADO</h1>')
@@ -120,3 +120,13 @@ def crear_auto(request):
     else:
         formulario = FormularioCrearAuto()
     return render(request, 'inicio/crear_auto.html', {'formulario': formulario})
+
+def listado_de_autos(request):
+    
+    formulario = FormularioBusqueda(request.GET)
+    if formulario.is_valid():
+        marca_a_buscar = formulario.cleaned_data['marca']
+        modelo_a_buscar = formulario.cleaned_data['modelo']
+        autos = Auto.objects.filter(marca__icontains=marca_a_buscar, modelo__icontains=modelo_a_buscar)
+    
+    return render(request, 'inicio/listado_de_autos.html', {'autos': autos, 'formulario': formulario})

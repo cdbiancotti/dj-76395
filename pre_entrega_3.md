@@ -25,6 +25,7 @@ Proyecto Web Django con patrón MVT que incluya:
     - [ ] .gitignore
     - [ ] requirements.txt
     - [ ] la navegacion
+    - [ ] la carga de static
     - [ ] etc
 
 ## Formato
