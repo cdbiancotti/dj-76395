@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title_text %}Sartenes{% endblock title_text %}
+
+{% block h1_text %}Listado de sartenes{% endblock h1_text %}
+
+{% block main %}
+{% comment %} 
+<p>
+    <form action={% url "inicio:listado_de_autos" %}>
+            {{formulario}}
+        <input type="submit" value='Buscar'>
+    </form>
+</p>
+ {% endcomment %}
+
+<p><a href={% url "productos:crear_sarten" %}>Crear sarten</a></p>
+
+{% if sartenes %}
+    <ul>
+        {% for sarten in sartenes %}
+        <li>
+            {{sarten}}
+            | <a href={% url "productos:ver_sarten" sarten.id %}>Ver mas</a>
+            | <a href={% url "productos:actualizar_sarten" sarten.id %}>Actualizar</a> 
+            | <a href={% url "productos:eliminar_sarten" sarten.id %}>Eliminar</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+<p>No hay sartenes creadas.</p>
+{% endif %}
+
+{% endblock main %}

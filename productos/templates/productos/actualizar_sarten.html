@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title_text %}Actualizar sarten{% endblock title_text %}
+
+{% block h1_text %}Actualizar sarten{% endblock h1_text %}
+
+{% block main %}
+
+<form action={% url "productos:actualizar_sarten" sarten.id %} method="POST">
+    {% csrf_token %}
+
+    {{form}}
+
+    <input type="submit" value="Actualizar">
+</form>
+
+{% endblock main %}
