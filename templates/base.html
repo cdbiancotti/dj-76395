@@ -29,7 +29,12 @@
                 <a class="navbar-brand" href={% url "inicio:crear_auto" %}>Crear Auto</a>
                 <a class="navbar-brand" href={% url "inicio:listado_de_autos" %}>Autos</a>
                 <a class="navbar-brand" href={% url "productos:listado_de_sartenes" %}>Sartenes</a>
-                <a class="navbar-brand" href='#'>{{request.user.username}}</a>
+                <a class="navbar-brand" href={% url "usuarios:editar_perfil" %}>
+                    {% if request.user.infoextra.avatar %}
+                        <img src={{request.user.infoextra.avatar.url}} alt="Imagen de perfil" height='40px'>
+                    {% endif %}
+                    {{request.user.username}}
+                </a>
                 <form action={% url "usuarios:logout" %} method="post">
                     {% csrf_token %}
                     <input class="btn btn-warning" type="submit" value='Logout'>
